@@ -1,6 +1,6 @@
 ---
-- include: apt-stuff.yml
-- include: kerbrute.yml
-- include: github-repos.yml
-- include: python-tools.yml
-- include: gem-tools.yml
+- import-tasks: apt-stuff.yml
+- import-tasks: kerbrute.yml
+- import-tasks: github-repos.yml
+- import-tasks: python-tools.yml
+- import-tasks: gem-tools.yml
