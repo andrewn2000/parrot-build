@@ -1,3 +1,3 @@
 ---
-- import-tasks: "burp.yml"
-- import-tasks: "firefox.yml"
+- import_tasks: "burp.yml"
+- import_tasks: "firefox.yml"
