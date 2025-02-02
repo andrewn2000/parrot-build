@@ -24,29 +24,3 @@
     state: latest
   become: true
   become_method: sudo
-
-- name: "Check if JDK 17 Debian package exists"
-  stat:
-    path: "/tmp/jdk-17.0.14_linux-x64_bin.deb"
-  register: jdk_package
-
-- name: "Download JDK 17 Debian package"
-  get_url:
-    url: "https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.deb"
-    dest: "/tmp/jdk-17.0.14_linux-x64_bin.deb"
-  become: true
-  when: not jdk_package.stat.exists
-
-- name: "Install JDK 17 Debian package"
-  apt:
-    deb: "/tmp/jdk-17.0.14_linux-x64_bin.deb"
-  become: true
-  become_method: sudo
-  when: jdk_package.stat.exists or not jdk_package.stat.exists
-
-- name: "Clean up JDK 17 Debian package"
-  file:
-    path: "/tmp/jdk-17.0.14_linux-x64_bin.deb"
-    state: absent
-  become: true
-  become_method: sudo
